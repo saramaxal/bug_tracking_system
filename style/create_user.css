@@ -1,0 +1,70 @@
+.create-user__container_header {
+    padding-top: 44px;
+    padding-bottom: 44px;
+}
+
+.nav__items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__item {
+    text-align: center;
+}
+
+.nav__item_active {
+    color: var(--COLOR-BLUE);
+}
+
+.nav__item:hover {
+    color: var(--COLOR-BLUE);
+}
+
+.wrap__nav {
+    display: flex;
+    gap: 44px;
+}
+
+.create-user__container {
+    padding-top: 114px;
+    padding-bottom: 226px;
+}
+
+.create-user__form {
+    max-width: 580px;
+    width: 100%;
+    margin: auto;
+}
+
+.create-user__fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.create-user__legend {
+    color: var(--COLOR-BLUE);
+    margin: 0 auto 32px auto;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.wrap-field {
+    display: flex;
+    gap: 24px;
+}
+
+.wrap-field__label {
+    display: block;
+    max-width: 140px;
+    width: 100%;
+}
+
+.wrap-field__input {
+    max-width: 416px;
+    width: 100%;
+}
+
+.create-user__button {
+    color: var(--COLOR-BLUE);
+}

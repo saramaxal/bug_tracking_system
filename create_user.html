@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new user</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style/create_user.css">
+</head>
+
+<body>
+    <header class="header__create-user create-user">
+        <div class="container create-user__container_header">
+            <nav class="header__nav nav">
+                <ul class="nav__items">
+                    <div class="wrap__nav">
+                        <li class="nav__item">
+                            <a href="#" class="nav__links" target="_self">
+                                список ошибок
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__links" target="_self">
+                                ввод новой ошибки
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__links" target="_self">
+                                список пользователей
+                            </a>
+                        </li>
+                        <li class="nav__item nav__item_active">
+                            <a href="#" class="nav__links" target="_self">
+                                создать пользователя
+                            </a>
+                        </li>
+                    </div>
+                    <li class="nav__item">
+                        <a href="#" class="nav__links" target="_self">
+                            выход
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <main class="main__create-user create-user">
+        <div class="container create-user__container">
+            <form action="" class="create-user__form">
+                <fieldset class="create-user__fieldset">
+                    <legend class="create-user__legend">
+                        Создание пользователя
+                    </legend>
+                    <div class="create-user__wrap-field wrap-field">
+                        <label for="name" class="wrap-field__label">Имя</label>
+                        <input type="text" id="name" class="wrap-field__input">
+                    </div>
+                    <div class="create-user__wrap-field wrap-field">
+                        <label for="surname" class="wrap-field__label">Фамилия</label>
+                        <input type="text" id="surname" class="wrap-field__input">
+                    </div>
+                    <div class="create-user__wrap-field wrap-field">
+                        <label for="login" class="wrap-field__label">Логин</label>
+                        <input type="text" id="login" class="wrap-field__input">
+                    </div>
+                    <div class="create-user__wrap-field wrap-field">
+                        <label for="password" class="wrap-field__label">Пароль</label>
+                        <input type="password" id="password" class="wrap-field__input">
+                    </div>
+                    <button class="create-user__button">СОЗДАТЬ</button>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

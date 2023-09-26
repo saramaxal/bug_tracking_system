@@ -66,13 +66,6 @@ svg {
     height: auto;
 }
 
-button {
-    padding: 0;
-    border: 0;
-    cursor: pointer;
-    background-color: transparent;
-}
-
 a {
     text-decoration: 0;
     color: inherit;
@@ -103,13 +96,27 @@ input {
     padding: 16px 24px;
 }
 
+input::placeholder {
+    color: var(--COLOR-GRAY_DARK);
+}
+
 button {
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
     border-radius: 4px;
     border: 2px solid var(--COLOR-BLUE_DARK);
     display: inline-flex;
     padding: 16px 24px;
     justify-content: center;
     align-items: center;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: var(--COLOR-BLUE);
+    color: var(--COLOR-WHITE);
 }
 
 .visually-hidden {

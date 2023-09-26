@@ -1,0 +1,38 @@
+.authorization__container {
+    height: 920px;
+}
+
+.authorization__logo {
+    background: url("../image/logo.svg") bottom no-repeat;
+    height: 34px;
+    max-width: 282px;
+    margin: 0 auto;
+    top: 238px;
+    position: relative;
+    width: 100%;
+}
+
+.authorization__form {
+    display: block;
+    width: 580px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translate(0px, -50%);
+}
+
+.authorization__fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.authorization__legend {
+    font-size: 30px;
+    color: var(--COLOR-BLUE);
+    font-weight: 500;
+}
+
+.authorization__button {
+    color: var(--COLOR-BLUE);
+}
