@@ -1,0 +1,127 @@
+/* ubuntu-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Ubuntu-Regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ubuntu-medium - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Ubuntu-Medium.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ubuntu-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Ubuntu-Bold.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+html {
+    box-sizing: border-box;
+    position: relative;
+    scroll-behavior: smooth;
+    --COLOR-BLUE: #4997D3;
+    --COLOR-BLUE_DARK: #094067;
+    --COLOR-WHITE: #FFFFFE;
+    --COLOR-GRAY: #EDEDED;
+    --COLOR-GRAY_DARK: #5F6C7B;
+    --COLOR-PINK: #EF4566;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Ubuntu, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--COLOR-BLUE_DARK);
+    background-color: var(--COLOR-WHITE);
+    line-height: 1.6;
+}
+
+img,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+a {
+    text-decoration: 0;
+    color: inherit;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+input {
+    border-radius: 4px;
+    border: 2px solid var(--COLOR-BLUE_DARK);
+    padding: 16px 24px;
+}
+
+button {
+    border-radius: 4px;
+    border: 2px solid var(--COLOR-BLUE_DARK);
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.visually-hidden {
+    position: fixed;
+    transform: scale(0);
+}
+
+.container {
+    --padding: 30px;
+    --width: 1180px;
+    max-width: calc(var(--width) + 2*var(--padding));
+    margin: 0 auto;
+    padding-right: var(--padding);
+    padding-left: var(--padding);
+}
