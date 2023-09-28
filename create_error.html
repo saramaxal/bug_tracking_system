@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>errors</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style/navigation.css">
+    <link rel="stylesheet" href="./style/create-error.css">
+    <link rel="stylesheet" href="./style/choices.min.css">
+    <link rel="stylesheet" href="./style/choices.css">
+    <script defer src="./script/choices.min.js"></script>
+    <script defer src="./script/my_choices.js"></script>
+</head>
+
+<body>
+    <header class="header__create-error header">
+        <div class="container header__container">
+            <nav class="header__nav nav">
+                <ul class="nav__items">
+                    <div class="wrap__nav">
+                        <li class="nav__item">
+                            <a href="list_errors.html" class="nav__links" target="_self">
+                                список ошибок
+                            </a>
+                        </li>
+                        <li class="nav__item nav__item_active">
+                            <a href="create_error.html" class="nav__links" target="_self">
+                                ввод новой ошибки
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="list_users.html" class="nav__links" target="_self">
+                                список пользователей
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="create_user.html" class="nav__links" target="_self">
+                                создать пользователя
+                            </a>
+                        </li>
+                    </div>
+                    <li class="nav__item">
+                        <a href="authorization.html" class="nav__links" target="_self">
+                            выход
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <main class="main__create-error create-error">
+        <div class="container create-error__container">
+            <form action="" class="create-error__form">
+                <fieldset class="create-error__fieldset">
+                    <legend class="create-error__legend">
+                        Добавление ошибки
+                    </legend>
+                    <div class="create-error__wrap-field wrap-field">
+                        <label for="shot_info" class="wrap-field__label">короткое описание</label>
+                        <input type="text" id="shot_info" class="wrap-field__input">
+                    </div>
+                    <div class="create-error__wrap-field wrap-field">
+                        <label for="detailed_info" class="wrap-field__label">подробное описание</label>
+                        <textarea name="" id="detailed_info" class="wrap-field__textarea"></textarea>
+
+                    </div>
+                    <div class="create-error__wrap-field wrap-field">
+                        <label class="wrap-field__label">срочность</label>
+                        <select name="" id="urgency" class="wrap-field__select">
+                        </select>
+                    </div>
+                    <button class="create-error__button">ДОБАВИТЬ</button>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

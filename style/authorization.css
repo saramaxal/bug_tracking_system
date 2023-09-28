@@ -27,11 +27,12 @@
     gap: 16px;
 }
 
+/* 
 .authorization__legend {
     font-size: 30px;
     color: var(--COLOR-BLUE);
     font-weight: 500;
-}
+} */
 
 .authorization__button {
     color: var(--COLOR-BLUE);

@@ -1,0 +1,142 @@
+.edit-error__container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.button_exit {
+    background-color: var(--COLOR-BLUE);
+    color: var(--COLOR-WHITE);
+    max-width: 170px;
+}
+
+.button_exit:hover {
+    background-color: var(--COLOR-BLUE_DARK);
+}
+
+.edit-error__title {
+    color: var(--COLOR-BLUE);
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.edit-error__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.edit-error__short-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.short-info__item-label {
+    display: inline-block;
+    max-width: 160px;
+    width: 100%;
+}
+
+.short-info__item-value {
+    color: var(--COLOR-GRAY_DARK);
+}
+
+.error-description__title {
+    color: var(--COLOR-BLUE_DARK);
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.error-description__content {
+    color: var(--COLOR-GRAY_DARK);
+    line-height: 1.6;
+}
+
+.button_edit {
+    max-width: 220px;
+    color: var(--COLOR-BLUE);
+}
+
+.edit-error__comments {
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-error__wrap-comments-title {
+    display: flex;
+    gap: 16px;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--COLOR-BLUE_DARK);
+    align-items: center;
+}
+
+.button_add-comments {
+    background-color: var(--COLOR-BLUE);
+    max-height: 24px;
+    max-width: 24px;
+    width: 100%;
+}
+
+.button_add-comments.off {
+    border-color: var(--COLOR-GRAY_DARK);
+    background-color: var(--COLOR-GRAY);
+}
+
+.button_add-comments.off svg path {
+    fill: var(--COLOR-GRAY_DARK);
+}
+
+.button_add-comments:not(.off):hover {
+    background-color: var(--COLOR-BLUE_DARK);
+}
+
+.edit-error__link-last__comment {
+    max-height: 24px;
+    max-width: 24px;
+}
+
+.edit-error__link-last__comment:hover svg path {
+    fill: var(--COLOR-BLUE_DARK);
+}
+
+
+.edit-error__comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+
+.edit-error__wrap-comment:not(.edit-error__wrap-comment:first-child) {
+    padding-top: 24px;
+}
+
+.edit-error__comment-description {
+    line-height: 1.6;
+    color: var(--COLOR-GRAY_DARK);
+}
+
+.edit-error__comment-status {
+    color: var(--COLOR-BLUE);
+}
+
+.comments-form__textarea {
+    min-height: 100px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.comments-form__add,
+.button_close {
+    color: var(--COLOR-BLUE);
+}
+
+.comments-form__add {
+    margin-right: 32px;
+    float: left;
+}

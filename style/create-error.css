@@ -1,0 +1,34 @@
+.create-error__form {
+    width: 780px;
+    margin: auto;
+    padding-top: 114px;
+}
+
+.create-error__fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.create-error__wrap-field {
+    display: flex;
+    gap: 24px;
+}
+
+.wrap-field__label {
+    display: block;
+    width: 140px;
+}
+
+.wrap-field__textarea,
+.wrap-field__input {
+    width: 100%;
+}
+
+.wrap-field__textarea {
+    min-height: 100px;
+}
+
+.create-error__button {
+    color: var(--COLOR-BLUE);
+}

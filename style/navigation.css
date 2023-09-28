@@ -1,0 +1,26 @@
+.header__container {
+    padding-top: 44px;
+    padding-bottom: 44px;
+}
+
+.nav__items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__item {
+    text-align: center;
+}
+
+.nav__item_active {
+    color: var(--COLOR-BLUE);
+}
+
+.nav__item:hover {
+    color: var(--COLOR-BLUE);
+}
+
+.wrap__nav {
+    display: flex;
+    gap: 44px;
+}
