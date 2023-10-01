@@ -13,42 +13,8 @@
     </head>
 
     <body>
-        <header class="header__edit-error header">
-            <div class="container header__container">
-                <nav class="header__nav nav">
-                    <ul class="nav__items">
-                        <div class="wrap__nav">
-                            <li class="nav__item nav__item_active">
-                                <a href="list_errors.cfm" class="nav__links" target="_self">
-                                    список ошибок
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="create_error.cfm" class="nav__links" target="_self">
-                                    ввод новой ошибки
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="list_users.cfm" class="nav__links" target="_self">
-                                    список пользователей
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="create_user.cfm" class="nav__links" target="_self">
-                                    создать пользователя
-                                </a>
-                            </li>
-                        </div>
-                        <li class="nav__item">
-                            <a href="authorization.cfm" class="nav__links" target="_self">
-                                выход
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
+        <cfset page_active="list_errors" />
+        <cfinclude template="header.cfm" />
         <main class="main__edit-error .edit-error">
             <div class="container edit-error__container">
                 <div class="button button_exit">

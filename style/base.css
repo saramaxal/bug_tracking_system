@@ -102,7 +102,7 @@ textarea {
     resize: vertical;
 }
 
-input,
+input:not(.nav__link),
 textarea {
     border-radius: 4px;
     border: 2px solid var(--COLOR-BLUE_DARK);
@@ -110,12 +110,12 @@ textarea {
     padding: 14px 22px;
 }
 
-input:focus,
+input:not(.nav__link):focus,
 textarea:focus {
     outline: none;
 }
 
-input::placeholder {
+input:not(.nav__link)::placeholder {
     color: var(--COLOR-GRAY_DARK);
 }
 

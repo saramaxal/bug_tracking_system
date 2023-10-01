@@ -12,11 +12,20 @@
     text-align: center;
 }
 
+input.nav__link {
+    text-align: center;
+    background-color: transparent;
+    color: var(--COLOR-BLUE_DARK);
+    padding: 0px;
+    border: none;
+}
+
 .nav__item_active {
     color: var(--COLOR-BLUE);
 }
 
-.nav__item:hover {
+.nav__item:hover,
+input.nav__link:hover {
     color: var(--COLOR-BLUE);
 }
 

@@ -1,0 +1,61 @@
+<cfcomponent>
+<cfset This.name = "BugTrackingSystem">
+<cfset This.clientmanagement="True">
+<cfset This.loginstorage="Session">
+<cfset This.sessionmanagement="True">
+<cfset This.sessiontimeout="#createtimespan(0,0,10,0)#">
+<cfset This.applicationtimeout="#createtimespan(5,0,0,0)#">
+<cfset This.ormenabled="True">
+<cfset This.datasource="cfaccerr">
+
+
+<cffunction name="onRequestStart">
+<!--- onSessionStart body goes here --->
+<!--cfset Request.theFunctionName=This.theFunctionName-->
+    <cfif IsDefined("logout")> 
+        <cfset StructClear(Session)>
+    </cfif>
+    
+    <cflogin>
+        <cfif NOT (IsDefined("login") && IsDefined("password"))> 
+            <cfinclude template="authorization.cfm"> 
+            <cfabort> 
+        <cfelse> 
+            <cfset pass = Hash("#password#",  "MD5")>
+            <cfquery name="qUser" datasource="cfaccerr">
+                SELECT count(1) as cnt FROM users WHERE login='#login#' AND password='#pass#'
+            </cfquery>
+            <cfif #qUser.cnt# EQ 1>
+                <cfloginuser name="#login#" Password = "#pass#" roles="">
+            <cfelse>
+                <cfset auth_err=1>
+                <cfinclude template="authorization.cfm"> 
+                <cfabort> 
+            </cfif>
+            <!--roles="#loginQuery.Roles#"-->
+        </cfif> 
+    </cflogin>
+</cffunction>
+    <cffunction name="CheckFunc">
+        <cfargument name="tryF" required="true" />
+        <cfargument name="callF" required="true" />
+        <cftry>
+            <cfscript>
+                tryF();
+            </cfscript>
+        <cfcatch type="any">
+            <cfscript>
+                callF();
+            </cfscript>
+        </cfcatch>   
+        </cftry>
+    </cffunction>
+
+   
+    <cfscript>
+        db_creator = new database_creator();
+        // db_creator.DropTable("USERS");
+        CheckFunc(db_creator.CheckUsersTable, db_creator.CreateUsersTable);
+    </cfscript>
+    
+</cfcomponent>

@@ -1,0 +1,47 @@
+<cfif NOT IsDefined("page_active")>
+    <cfset page_active="">
+</cfif>
+<cffunction name="prnActive" output="yes" returnType="string">
+    <cfargument name="nav_name" type="string" required="true" />
+    <cfif "#page_active#" EQ "#nav_name#">
+        <cfreturn "nav__item_active">
+    </cfif>
+    <cfreturn "">
+</cffunction>
+
+<header class="header__create-error header">
+    <div class="container header__container">
+        <nav class="header__nav nav">
+            <ul class="nav__items">
+                <div class="wrap__nav">
+                    <li class="nav__item <cfoutput>#prnActive('list_errors')#</cfoutput>">
+                        <a href="list_errors.cfm" class="nav__link" target="_self">
+                            список ошибок
+                        </a>
+                    </li>
+                    <li class="nav__item <cfoutput>#prnActive('create_error')#</cfoutput>">
+                        <a href="create_error.cfm" class="nav__link" target="_self">
+                            ввод новой ошибки
+                        </a>
+                    </li>
+                    <li class="nav__item <cfoutput>#prnActive('list_users')#</cfoutput>">
+                        <a href="list_users.cfm" class="nav__link" target="_self">
+                            список пользователей
+                        </a>
+                    </li>
+                    <li class="nav__item <cfoutput>#prnActive('create_user')#</cfoutput>">
+                        <a href="create_user.cfm" class="nav__link" target="_self">
+                            создать пользователя
+                        </a>
+                    </li>
+                </div>
+                <li class="nav__item">
+                    <cfform action="#CGI.script_name#?#CGI.query_string#" method="post">
+                        <cfinput type="submit" class="nav__link" name="logout" value="выход" />
+                    </cfform>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
