@@ -36,26 +36,36 @@
         </cfif> 
     </cflogin>
 </cffunction>
-    <cffunction name="CheckFunc">
-        <cfargument name="tryF" required="true" />
-        <cfargument name="callF" required="true" />
-        <cftry>
-            <cfscript>
-                tryF();
-            </cfscript>
-        <cfcatch type="any">
-            <cfscript>
-                callF();
-            </cfscript>
-        </cfcatch>   
-        </cftry>
-    </cffunction>
 
-   
-    <cfscript>
-        db_creator = new database_creator();
-        // db_creator.DropTable("USERS");
-        CheckFunc(db_creator.CheckUsersTable, db_creator.CreateUsersTable);
-    </cfscript>
+
+<cffunction name="CheckFunc">
+    <cfargument name="tryF" required="true" />
+    <cfargument name="callF" required="true" />
+    <cftry>
+        <cfscript>
+            tryF();
+        </cfscript>
+    <cfcatch type="any">
+        <cfscript>
+            callF();
+        </cfscript>
+    </cfcatch>   
+    </cftry>
+</cffunction>
+
+<cfscript>
+    db_creator = new database_creator();
+    // db_creator.DropTable("bug");
+    // db_creator.DropTable("bug_urgency");
+    // db_creator.DropTable("bug_status_trace");
+    // db_creator.DropTable("bug_status");
+    // db_creator.DropTable("users");
+    CheckFunc(db_creator.CheckUsersTable, db_creator.CreateUsersTable);
+    CheckFunc(db_creator.CheckBugStatusTable, db_creator.CreateBugStatusTable);
+    CheckFunc(db_creator.CheckBugStatusTraceTable, db_creator.CreateBugStatusTraceTable);
+    CheckFunc(db_creator.CheckBugUrgencyTable, db_creator.CreateBugUrgencyTable);
+    CheckFunc(db_creator.CheckBugTable, db_creator.CreateBugTable);
+    CheckFunc(db_creator.CheckBugHistTable, db_creator.CreateBugHistTable);
+</cfscript>
     
 </cfcomponent>
