@@ -1,32 +1,46 @@
-<!DOCTYPE html>
-<html lang="ru">
+<cfcontent type="text/html charset=cp1251">
+    <!DOCTYPE html>
+    <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./style/authorization.css">
-</head>
+    <head>
+        <meta charset="cp1251">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./style/authorization.css">
+    </head>
 
-<body>
-    <main class="main__authorization authorization">
-        <div class="container authorization__container">
-            <div class="authorization__logo"></div>
-            <form action="" class="authorization__form">
-                <fieldset class="authorization__fieldset">
-                    <legend class="authorization__legend">
-                        Р’РҐРћР”
-                    </legend>
-                    <input type="text" class="authorization__input" placeholder="login">
-                    <input type="password" class="authorization__input" placeholder="password">
-                    <button class="authorization__button">
-                        Р’РҐРћР”
-                    </button>
-                </fieldset>
-            </form>
-        </div>
-    </main>
-</body>
+    <body>
+        <main class="main__authorization authorization">
+            <div class="container authorization__container">
+                <div class="authorization__logo">
+                </div>
+                <cfform name="loginform" action="#CGI.script_name#?#CGI.query_string#" method="post"
+                    class="authorization__form">
+                    <fieldset class="authorization__fieldset">
+                        <legend class="authorization__legend">
+                            ВХОД
+                        </legend>
+                        <cfif NOT IsDefined("login")>
+                            <cfset login="">
+                        </cfif>
+                        <cfinput type="text" class="authorization__input" placeholder="login" name="login"
+                            value="#login#" />
+                        <cfinput type="password" class="authorization__input" placeholder="password" name="password" />
+                        <cfinput type="hidden" name="is_login" />
+                        <button class="authorization__button">
+                            ВХОД
+                        </button>
+                        <cfif IsDefined("auth_err")>
+                            <span class="authorization__error">
+                                некорректный пользователь
+                            </span>
+                        </cfif>
+                    </fieldset>
+                </cfform>
+            </div>
+        </main>
+    </body>
 
-</html>
+    </html>
+</cfcontent>

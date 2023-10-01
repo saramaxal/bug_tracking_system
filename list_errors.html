@@ -1,56 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<cfcontent type="text/html charset=cp1251">
+    <!DOCTYPE html>
+    <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>errors</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./style/navigation.css">
-</head>
+    <head>
+        <meta charset="cp1251">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>errors</title>
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./style/navigation.css">
+    </head>
 
-<body>
-    <header class="header__list-error header">
-        <div class="container header__container">
-            <nav class="header__nav nav">
-                <ul class="nav__items">
-                    <div class="wrap__nav">
-                        <li class="nav__item nav__item_active">
-                            <a href="list_errors.html" class="nav__links" target="_self">
-                                СЃРїРёСЃРѕРє РѕС€РёР±РѕРє
-                            </a>
-                        </li>
+    <body>
+        <header class="header__list-error header">
+            <div class="container header__container">
+                <nav class="header__nav nav">
+                    <ul class="nav__items">
+                        <div class="wrap__nav">
+                            <li class="nav__item nav__item_active">
+                                <a href="list_errors.cfm" class="nav__links" target="_self">
+                                    список ошибок
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="create_error.cfm" class="nav__links" target="_self">
+                                    ввод новой ошибки
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="list_users.cfm" class="nav__links" target="_self">
+                                    список пользователей
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="create_user.cfm" class="nav__links" target="_self">
+                                    создать пользователя
+                                </a>
+                            </li>
+                        </div>
                         <li class="nav__item">
-                            <a href="create_error.html" class="nav__links" target="_self">
-                                РІРІРѕРґ РЅРѕРІРѕР№ РѕС€РёР±РєРё
+                            <a href="authorization.cfm" class="nav__links" target="_self">
+                                выход
                             </a>
                         </li>
-                        <li class="nav__item">
-                            <a href="list_users.html" class="nav__links" target="_self">
-                                СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="create_user.html" class="nav__links" target="_self">
-                                СЃРѕР·РґР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
-                            </a>
-                        </li>
-                    </div>
-                    <li class="nav__item">
-                        <a href="authorization.html" class="nav__links" target="_self">
-                            РІС‹С…РѕРґ
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
 
-        </div>
-    </header>
-    <main class="main__list-error .list-error">
-        <div class="container list-error__container">
-            <a href="edit_error.html">СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РѕС€РёР±РєСѓ</a>
-        </div>
-    </main>
-</body>
+            </div>
+        </header>
+        <main class="main__list-error .list-error">
+            <div class="container list-error__container">
+                <a href="edit_error.cfm">редактировать ошибку</a>
+            </div>
+        </main>
+    </body>
+    <cfquery name="aaa" datasource="cfaccerr">
+        SELECT * FROM USERS
+    </cfquery>
 
-</html>
+    <cfscript>
+        writedump(aaa)
+    </cfscript>
+
+    </html>
+</cfcontent>

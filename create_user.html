@@ -1,80 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<cfcontent type="text/html charset=cp1251">
+    <!DOCTYPE html>
+    <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>new user</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./style/navigation.css">
-    <link rel="stylesheet" href="./style/create_user.css">
-</head>
+    <head>
+        <meta charset="cp1251">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>new user</title>
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./style/navigation.css">
+        <link rel="stylesheet" href="./style/create_user.css">
+    </head>
 
-<body>
-    <header class="header__create-error header">
-        <div class="container header__container">
-            <nav class="header__nav nav">
-                <ul class="nav__items">
-                    <div class="wrap__nav">
+    <body>
+        <header class="header__create-error header">
+            <div class="container header__container">
+                <nav class="header__nav nav">
+                    <ul class="nav__items">
+                        <div class="wrap__nav">
+                            <li class="nav__item">
+                                <a href="list_errors.cfm" class="nav__links" target="_self">
+                                    список ошибок
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="create_error.cfm" class="nav__links" target="_self">
+                                    ввод новой ошибки
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="list_users.cfm" class="nav__links" target="_self">
+                                    список пользователей
+                                </a>
+                            </li>
+                            <li class="nav__item nav__item_active">
+                                <a href="create_user.cfm" class="nav__links" target="_self">
+                                    создать пользователя
+                                </a>
+                            </li>
+                        </div>
                         <li class="nav__item">
-                            <a href="list_errors.html" class="nav__links" target="_self">
-                                СЃРїРёСЃРѕРє РѕС€РёР±РѕРє
+                            <a href="authorization.cfm" class="nav__links" target="_self">
+                                выход
                             </a>
                         </li>
-                        <li class="nav__item">
-                            <a href="create_error.html" class="nav__links" target="_self">
-                                РІРІРѕРґ РЅРѕРІРѕР№ РѕС€РёР±РєРё
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="list_users.html" class="nav__links" target="_self">
-                                СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
-                            </a>
-                        </li>
-                        <li class="nav__item nav__item_active">
-                            <a href="create_user.html" class="nav__links" target="_self">
-                                СЃРѕР·РґР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
-                            </a>
-                        </li>
-                    </div>
-                    <li class="nav__item">
-                        <a href="authorization.html" class="nav__links" target="_self">
-                            РІС‹С…РѕРґ
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
 
-        </div>
-    </header>
-    <main class="main__create-user create-user">
-        <div class="container create-user__container">
-            <form action="" class="create-user__form">
-                <fieldset class="create-user__fieldset">
-                    <legend class="create-user__legend">
-                        РЎРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
-                    </legend>
-                    <div class="create-user__wrap-field wrap-field">
-                        <label for="name" class="wrap-field__label">РРјСЏ</label>
-                        <input type="text" id="name" class="wrap-field__input">
-                    </div>
-                    <div class="create-user__wrap-field wrap-field">
-                        <label for="surname" class="wrap-field__label">Р¤Р°РјРёР»РёСЏ</label>
-                        <input type="text" id="surname" class="wrap-field__input">
-                    </div>
-                    <div class="create-user__wrap-field wrap-field">
-                        <label for="login" class="wrap-field__label">Р›РѕРіРёРЅ</label>
-                        <input type="text" id="login" class="wrap-field__input">
-                    </div>
-                    <div class="create-user__wrap-field wrap-field">
-                        <label for="password" class="wrap-field__label">РџР°СЂРѕР»СЊ</label>
-                        <input type="password" id="password" class="wrap-field__input">
-                    </div>
-                    <button class="create-user__button">РЎРћР—Р”РђРўР¬</button>
-                </fieldset>
-            </form>
-        </div>
-    </main>
-</body>
+            </div>
+        </header>
+        <main class="main__create-user create-user">
+            <div class="container create-user__container">
+                <form action="" class="create-user__form">
+                    <fieldset class="create-user__fieldset">
+                        <legend class="create-user__legend">
+                            Создание пользователя
+                        </legend>
+                        <div class="create-user__wrap-field wrap-field">
+                            <label for="name" class="wrap-field__label">Имя</label>
+                            <input type="text" id="name" class="wrap-field__input">
+                        </div>
+                        <div class="create-user__wrap-field wrap-field">
+                            <label for="surname" class="wrap-field__label">Фамилия</label>
+                            <input type="text" id="surname" class="wrap-field__input">
+                        </div>
+                        <div class="create-user__wrap-field wrap-field">
+                            <label for="login" class="wrap-field__label">Логин</label>
+                            <input type="text" id="login" class="wrap-field__input">
+                        </div>
+                        <div class="create-user__wrap-field wrap-field">
+                            <label for="password" class="wrap-field__label">Пароль</label>
+                            <input type="password" id="password" class="wrap-field__input">
+                        </div>
+                        <button class="create-user__button">СОЗДАТЬ</button>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+    </body>
 
-</html>
+    </html>
+</cfcontent>

@@ -1,188 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
+<cfcontent type="text/html charset=cp1251">
+    <!DOCTYPE html>
+    <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>errors</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./style/navigation.css">
-    <link rel="stylesheet" href="./style/edit_error.css">
-    <script defer src="script/edit_error.js"></script>
-</head>
+    <head>
+        <meta charset="cp1251">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>errors</title>
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./style/navigation.css">
+        <link rel="stylesheet" href="./style/edit_error.css">
+        <script defer src="./script/edit_error.js"></script>
+    </head>
 
-<body>
-    <header class="header__edit-error header">
-        <div class="container header__container">
-            <nav class="header__nav nav">
-                <ul class="nav__items">
-                    <div class="wrap__nav">
-                        <li class="nav__item nav__item_active">
-                            <a href="list_errors.html" class="nav__links" target="_self">
-                                СЃРїРёСЃРѕРє РѕС€РёР±РѕРє
-                            </a>
-                        </li>
+    <body>
+        <header class="header__edit-error header">
+            <div class="container header__container">
+                <nav class="header__nav nav">
+                    <ul class="nav__items">
+                        <div class="wrap__nav">
+                            <li class="nav__item nav__item_active">
+                                <a href="list_errors.cfm" class="nav__links" target="_self">
+                                    список ошибок
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="create_error.cfm" class="nav__links" target="_self">
+                                    ввод новой ошибки
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="list_users.cfm" class="nav__links" target="_self">
+                                    список пользователей
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="create_user.cfm" class="nav__links" target="_self">
+                                    создать пользователя
+                                </a>
+                            </li>
+                        </div>
                         <li class="nav__item">
-                            <a href="create_error.html" class="nav__links" target="_self">
-                                РІРІРѕРґ РЅРѕРІРѕР№ РѕС€РёР±РєРё
+                            <a href="authorization.cfm" class="nav__links" target="_self">
+                                выход
                             </a>
                         </li>
-                        <li class="nav__item">
-                            <a href="list_users.html" class="nav__links" target="_self">
-                                СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="create_user.html" class="nav__links" target="_self">
-                                СЃРѕР·РґР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
-                            </a>
-                        </li>
-                    </div>
-                    <li class="nav__item">
-                        <a href="authorization.html" class="nav__links" target="_self">
-                            РІС‹С…РѕРґ
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
 
-        </div>
-    </header>
-    <main class="main__edit-error .edit-error">
-        <div class="container edit-error__container">
-            <div class="button button_exit">
-                <a href="list_errors.html"><- РІРµСЂРЅСѓС‚СЊСЃСЏ</a>
             </div>
-            <div class="edit-error__title">
-                <span>
-                    РћС€РёР±РєР° #324
-                </span>
+        </header>
+        <main class="main__edit-error .edit-error">
+            <div class="container edit-error__container">
+                <div class="button button_exit">
+                    <a href="list_errors.cfm"><- вернуться</a>
+                </div>
+                <div class="edit-error__title">
+                    <span>
+                        Ошибка #324
+                    </span>
+                </div>
+                <div class="edit-error__info">
+                    <div class="edit-error__short-info short-info">
+                        <div class="short-info__item">
+                            <span class="short-info__item-label">автор</span>
+                            <span class="short-info__item-value">saramaxal</span>
+                        </div>
+                        <div class="short-info__item">
+                            <span class="short-info__item-label">дата создания</span>
+                            <span class="short-info__item-value">25 августа 2023</span>
+                        </div>
+                        <div class="short-info__item">
+                            <span class="short-info__item-label">статус</span>
+                            <span class="short-info__item-value">новая</span>
+                        </div>
+                        <div class="short-info__item">
+                            <span class="short-info__item-label">срочность</span>
+                            <span class="short-info__item-value">очень срочно</span>
+                        </div>
+                    </div>
+                    <div class="edit-error__description error-description">
+                        <div class="error-description__title">
+                            <span>не работает анимация</span>
+                        </div>
+                        <div class="error-description__content">
+                            <p>не работает анимация не работает анимацияне работает анимацияне работает анимацияне
+                                работает
+                                анимацияне работает анимацияне работает анимацияне работает анимацияне работает
+                                анимацияне
+                                работает анимацияне работает анимацияне работает анимация</p>
+                        </div>
+                    </div>
+                    <div class="button button_edit">
+                        <span>РЕДАКТИРОВАТЬ</span>
+                    </div>
+                </div>
+                <div class="edit-error__comments">
+                    <div class="edit-error__wrap-comments-title">
+                        <span>Комментарии</span>
+                        <div class="button button_add-comments button_min">
+                            <svg width="16" height="24" viewBox="0 0 16 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 11.18H6.67V5H9.07V11.18H14.74V13.55H9.07V19.76H6.67V13.55H1V11.18Z"
+                                    fill="white" />
+                            </svg>
+                            <!-- <a href="#form"></a> -->
+                        </div>
+                        <div class="edit-error__link-last__comment">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.4421 2V8.65488H10.5837V2H13.4421Z" fill="#4997D3" />
+                                <path
+                                    d="M10.6867 22L6 11.3374L8.54936 10.521L12 18.8086L15.4506 10.521L18 11.3374L13.3133 22H10.6867Z"
+                                    fill="#4997D3" />
+                            </svg>
+
+                        </div>
+                    </div>
+                    <div class="edit-error__wrap-comments">
+                        <div class="edit-error__wrap-comment">
+                            <div class="edit-error__comment-header">
+                                <span class="edit-error__comment-user">user_name</span>
+                                <span class="edit-error__comment-status">новая -> открыта</span>
+                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
+                            </div>
+                            <p class="edit-error__comment-description">
+                                не работает анимация не работает анимацияне работает анимация
+                            </p>
+                        </div>
+                        <div class="edit-error__wrap-comment">
+                            <div class="edit-error__comment-header">
+                                <span class="edit-error__comment-user">user_name</span>
+                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
+                            </div>
+                            <p class="edit-error__comment-description">
+                                не работает анимация не работает анимацияне работает анимация
+                            </p>
+                        </div>
+                        <div class="edit-error__wrap-comment">
+                            <div class="edit-error__comment-header">
+                                <span class="edit-error__comment-user">user_name</span>
+                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
+                            </div>
+                            <p class="edit-error__comment-description">
+                                не работает анимация не работает анимацияне работает анимация
+                            </p>
+                        </div>
+                        <div class="edit-error__wrap-comment">
+                            <div class="edit-error__comment-header">
+                                <span class="edit-error__comment-user">user_name</span>
+                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
+                            </div>
+                            <p class="edit-error__comment-description">
+                                не работает анимация не работает анимацияне работает анимация
+                            </p>
+                        </div>
+                        <div class="edit-error__wrap-comment">
+                            <div class="edit-error__comment-header">
+                                <span class="edit-error__comment-user">user_name</span>
+                                <span class="edit-error__comment-status">новая -> открыта</span>
+                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
+                            </div>
+                            <p class="edit-error__comment-description">
+                                не работает анимация не работает анимацияне работает анимация
+                            </p>
+                        </div>
+                        <div class="edit-error__wrap-comment">
+                            <div class="edit-error__comment-header">
+                                <span class="edit-error__comment-user">user_name</span>
+                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
+                            </div>
+                            <p class="edit-error__comment-description">
+                                не работает анимация не работает анимацияне работает анимация
+                            </p>
+                        </div>
+
+                    </div>
+                    <form class="edit-error__comments-form comments-form visually-hidden">
+                        <textarea name="" class="comments-form__textarea"></textarea>
+                        <div class="comments-form__wrap-buttons">
+                            <button class="comments-form__add">ДОБАВИТЬ</button>
+                            <div class="button button_close">
+                                <span>ОТМЕНА</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="edit-error__info">
-                <div class="edit-error__short-info short-info">
-                    <div class="short-info__item">
-                        <span class="short-info__item-label">Р°РІС‚РѕСЂ</span>
-                        <span class="short-info__item-value">saramaxal</span>
-                    </div>
-                    <div class="short-info__item">
-                        <span class="short-info__item-label">РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ</span>
-                        <span class="short-info__item-value">25 Р°РІРіСѓСЃС‚Р° 2023</span>
-                    </div>
-                    <div class="short-info__item">
-                        <span class="short-info__item-label">СЃС‚Р°С‚СѓСЃ</span>
-                        <span class="short-info__item-value">РЅРѕРІР°СЏ</span>
-                    </div>
-                    <div class="short-info__item">
-                        <span class="short-info__item-label">СЃСЂРѕС‡РЅРѕСЃС‚СЊ</span>
-                        <span class="short-info__item-value">РѕС‡РµРЅСЊ СЃСЂРѕС‡РЅРѕ</span>
-                    </div>
-                </div>
-                <div class="edit-error__description error-description">
-                    <div class="error-description__title">
-                        <span>РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ</span>
-                    </div>
-                    <div class="error-description__content">
-                        <p>РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚
-                            Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ
-                            СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ</p>
-                    </div>
-                </div>
-                <div class="button button_edit">
-                    <span>Р Р•Р”РђРљРўРР РћР’РђРўР¬</span>
-                </div>
-            </div>
-            <div class="edit-error__comments">
-                <div class="edit-error__wrap-comments-title">
-                    <span>РљРѕРјРјРµРЅС‚Р°СЂРёРё</span>
-                    <div class="button button_add-comments button_min">
-                        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 11.18H6.67V5H9.07V11.18H14.74V13.55H9.07V19.76H6.67V13.55H1V11.18Z"
-                                fill="white" />
-                        </svg>
-                        <!-- <a href="#form"></a> -->
-                    </div>
-                    <div class="edit-error__link-last__comment">
+        </main>
+    </body>
 
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.4421 2V8.65488H10.5837V2H13.4421Z" fill="#4997D3" />
-                            <path
-                                d="M10.6867 22L6 11.3374L8.54936 10.521L12 18.8086L15.4506 10.521L18 11.3374L13.3133 22H10.6867Z"
-                                fill="#4997D3" />
-                        </svg>
-
-                    </div>
-                </div>
-                <div class="edit-error__wrap-comments">
-                    <div class="edit-error__wrap-comment">
-                        <div class="edit-error__comment-header">
-                            <span class="edit-error__comment-user">user_name</span>
-                            <span class="edit-error__comment-status">РЅРѕРІР°СЏ -> РѕС‚РєСЂС‹С‚Р°</span>
-                            <span class="edit-error__comment-date">25 Р°РІРіСѓСЃС‚Р° 2023 23:21</span>
-                        </div>
-                        <p class="edit-error__comment-description">
-                            РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ
-                        </p>
-                    </div>
-                    <div class="edit-error__wrap-comment">
-                        <div class="edit-error__comment-header">
-                            <span class="edit-error__comment-user">user_name</span>
-                            <span class="edit-error__comment-date">25 Р°РІРіСѓСЃС‚Р° 2023 23:21</span>
-                        </div>
-                        <p class="edit-error__comment-description">
-                            РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ
-                        </p>
-                    </div>
-                    <div class="edit-error__wrap-comment">
-                        <div class="edit-error__comment-header">
-                            <span class="edit-error__comment-user">user_name</span>
-                            <span class="edit-error__comment-date">25 Р°РІРіСѓСЃС‚Р° 2023 23:21</span>
-                        </div>
-                        <p class="edit-error__comment-description">
-                            РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ
-                        </p>
-                    </div>
-                    <div class="edit-error__wrap-comment">
-                        <div class="edit-error__comment-header">
-                            <span class="edit-error__comment-user">user_name</span>
-                            <span class="edit-error__comment-date">25 Р°РІРіСѓСЃС‚Р° 2023 23:21</span>
-                        </div>
-                        <p class="edit-error__comment-description">
-                            РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ
-                        </p>
-                    </div>
-                    <div class="edit-error__wrap-comment">
-                        <div class="edit-error__comment-header">
-                            <span class="edit-error__comment-user">user_name</span>
-                            <span class="edit-error__comment-status">РЅРѕРІР°СЏ -> РѕС‚РєСЂС‹С‚Р°</span>
-                            <span class="edit-error__comment-date">25 Р°РІРіСѓСЃС‚Р° 2023 23:21</span>
-                        </div>
-                        <p class="edit-error__comment-description">
-                            РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ
-                        </p>
-                    </div>
-                    <div class="edit-error__wrap-comment">
-                        <div class="edit-error__comment-header">
-                            <span class="edit-error__comment-user">user_name</span>
-                            <span class="edit-error__comment-date">25 Р°РІРіСѓСЃС‚Р° 2023 23:21</span>
-                        </div>
-                        <p class="edit-error__comment-description">
-                            РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏРЅРµ СЂР°Р±РѕС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ
-                        </p>
-                    </div>
-
-                </div>
-                <form class="edit-error__comments-form comments-form visually-hidden">
-                    <textarea name="" class="comments-form__textarea"></textarea>
-                    <div class="comments-form__wrap-buttons">
-                        <button class="comments-form__add">Р”РћР‘РђР’РРўР¬</button>
-                        <div class="button button_close">
-                            <span>РћРўРњР•РќРђ</span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </main>
-</body>
-
-</html>
+    </html>
+</cfcontent>
