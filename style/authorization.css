@@ -3,7 +3,7 @@
 }
 
 .authorization__logo {
-    background: url("../image/logo.svg") bottom no-repeat;
+    background: url("../image/logo.png") bottom no-repeat;
     height: 34px;
     max-width: 282px;
     margin: 0 auto;
@@ -36,4 +36,8 @@
 
 .authorization__button {
     color: var(--COLOR-BLUE);
+}
+
+.authorization__error {
+    color: #AD4C5F;
 }
