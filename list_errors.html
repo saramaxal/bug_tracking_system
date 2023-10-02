@@ -1,4 +1,10 @@
 <cfcontent type="text/html charset=cp1251">
+    <cfscript>
+        db_lib = new database_lib();
+        BugList = db_lib.GetBugs();
+    </cfscript>
+
+
     <!DOCTYPE html>
     <html lang="ru">
 
@@ -8,24 +14,47 @@
         <title>errors</title>
         <link rel="stylesheet" href="./index.css">
         <link rel="stylesheet" href="./style/navigation.css">
+        <link rel="stylesheet" href="./style/list-errors.css">
     </head>
 
     <body>
         <cfset page_active="list_errors" />
         <cfinclude template="header.cfm" />
-        <main class="main__list-error .list-error">
+        <main class="main__list-error list-error">
             <div class="container list-error__container">
-                <a href="edit_error.cfm">редактировать ошибку</a>
+                <form name="edit_error" action="edit_error.cfm" method="get">
+                    <input type="hidden" name="bug">
+                    <div class="list-error__items">
+                        <div class="list-error__item list-error__item_header">
+                            <div class="id"></div>
+                            <div class="user">автор</div>
+                            <div class="datee">дата изменения</div>
+                            <div class="name">описание</div>
+                            <div class="status">статус</div>
+                            <div class="urgency">срочность</div>
+                        </div>
+
+                        <cfoutput query="BugList">
+                            <div class="list-error__item">
+                                <div class="id">###id#</div>
+                                <div class="user">#username#</div>
+                                <div class="datee">#DateFormat(datee, "dd-mm-yyyy")#</div>
+                                <div class="name">#name#</div>
+                                <div class="status">#status#</div>
+                                <div class="urgency">#urgency#</div>
+                                <button class="button_min"
+                                    onclick="document.querySelector('input[name=\'bug\']').value = '#id#';">
+                                    ^o.o^
+                                </button>
+                            </div>
+                        </cfoutput>
+                    </div>
+
+                </form>
+
             </div>
         </main>
     </body>
-    <cfquery name="aaa" datasource="cfaccerr">
-        SELECT * FROM bug_status_trace
-    </cfquery>
-
-    <cfscript>
-        writedump(aaa)
-    </cfscript>
 
     </html>
 </cfcontent>

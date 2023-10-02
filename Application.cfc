@@ -15,6 +15,11 @@
     <cfif IsDefined("logout")> 
         <cfset StructClear(Session)>
     </cfif>
+
+    <cfscript>
+        SetEncoding("url", "cp1251");
+        SetEncoding("form", "cp1251");
+    </cfscript>
     
     <cflogin>
         <cfif NOT (IsDefined("login") && IsDefined("password"))> 
@@ -23,10 +28,11 @@
         <cfelse> 
             <cfset pass = Hash("#password#",  "MD5")>
             <cfquery name="qUser" datasource="cfaccerr">
-                SELECT count(1) as cnt FROM users WHERE login='#login#' AND password='#pass#'
+                SELECT max(id) as id, count(1) as cnt FROM users WHERE login='#login#' AND password='#pass#'
             </cfquery>
             <cfif #qUser.cnt# EQ 1>
                 <cfloginuser name="#login#" Password = "#pass#" roles="">
+                <cfset Session.user_id="#qUser.id#">
             <cfelse>
                 <cfset auth_err=1>
                 <cfinclude template="authorization.cfm"> 
@@ -55,6 +61,7 @@
 
 <cfscript>
     db_creator = new database_creator();
+    // db_creator.DropTable("bug_hist");
     // db_creator.DropTable("bug");
     // db_creator.DropTable("bug_urgency");
     // db_creator.DropTable("bug_status_trace");

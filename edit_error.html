@@ -1,4 +1,30 @@
 <cfcontent type="text/html charset=cp1251">
+    <cfscript>
+        db_lib = new database_lib();
+        BugUrgencies = db_lib.GetBugUrgencies();
+        BugInfo = db_lib.GetBugs(bug);
+        BugHist = db_lib.GetBugHist(bug);
+        StatusList = db_lib.GetBugStatusTraces(BugInfo.status_name);
+    </cfscript>
+
+    <cfif IsDefined("is_comment")>
+        <cfif db_lib.CreateBugHist(bug, new_comment, "NULL" )>
+            <cfoutput>SUCCESS!</cfoutput>
+            <cfelse>
+                <cfoutput>ERROR!!!</cfoutput>
+        </cfif>
+    </cfif>
+    <cfif IsDefined("is_redact")>
+        <cfscript>
+            if (new_status != old_status){
+            db_lib.CreateBugHist(bug, new_comment, new_status);
+            }
+            db_lib.ChangeBug(bug, new_name, new_description, new_urgency, new_status );
+
+        </cfscript>
+    </cfif>
+
+
     <!DOCTYPE html>
     <html lang="ru">
 
@@ -7,8 +33,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>errors</title>
         <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./style/choices.min.css">
+        <link rel="stylesheet" href="./style/choices.css">
         <link rel="stylesheet" href="./style/navigation.css">
         <link rel="stylesheet" href="./style/edit_error.css">
+        <script defer src="./script/choices.min.js"></script>
+        <script defer src="./script/my_choices.js"></script>
         <script defer src="./script/edit_error.js"></script>
     </head>
 
@@ -22,43 +52,104 @@
                 </div>
                 <div class="edit-error__title">
                     <span>
-                        Ошибка #324
+                        <cfoutput>Ошибка ###BugInfo.id#</cfoutput>
                     </span>
                 </div>
                 <div class="edit-error__info">
                     <div class="edit-error__short-info short-info">
                         <div class="short-info__item">
                             <span class="short-info__item-label">автор</span>
-                            <span class="short-info__item-value">saramaxal</span>
+                            <span class="short-info__item-value">
+                                <cfoutput>#BugInfo.userfullname#</cfoutput>
+                            </span>
                         </div>
                         <div class="short-info__item">
                             <span class="short-info__item-label">дата создания</span>
-                            <span class="short-info__item-value">25 августа 2023</span>
+                            <span class="short-info__item-value">
+                                <cfoutput>#DateFormat(BugInfo.datec, "dd mmmm yyyy")#</cfoutput>
+                            </span>
                         </div>
-                        <div class="short-info__item">
+                        <div class="short-info__item error-flag_show">
                             <span class="short-info__item-label">статус</span>
-                            <span class="short-info__item-value">новая</span>
+                            <span class="short-info__item-value">
+                                <cfoutput>#BugInfo.status#</cfoutput>
+                            </span>
                         </div>
-                        <div class="short-info__item">
+                        <div class="short-info__item error-flag_show">
                             <span class="short-info__item-label">срочность</span>
-                            <span class="short-info__item-value">очень срочно</span>
+                            <span class="short-info__item-value">
+                                <cfoutput>#BugInfo.urgency#</cfoutput>
+                            </span>
                         </div>
                     </div>
                     <div class="edit-error__description error-description">
-                        <div class="error-description__title">
-                            <span>не работает анимация</span>
+                        <div class="error-description__title error-flag_show">
+                            <span>
+                                <cfoutput>#BugInfo.name#</cfoutput>
+                            </span>
                         </div>
-                        <div class="error-description__content">
-                            <p>не работает анимация не работает анимацияне работает анимацияне работает анимацияне
-                                работает
-                                анимацияне работает анимацияне работает анимацияне работает анимацияне работает
-                                анимацияне
-                                работает анимацияне работает анимацияне работает анимация</p>
+                        <div class="error-description__content error-flag_show">
+                            <p>
+                                <cfoutput>#BugInfo.description#</cfoutput>
+                            </p>
                         </div>
                     </div>
-                    <div class="button button_edit">
+                    <div class="button button_edit error-flag_show">
                         <span>РЕДАКТИРОВАТЬ</span>
                     </div>
+
+                    <form method="post" class="edit-error__form error-flag_hidden visually-hidden">
+                        <input type="hidden" name="is_redact">
+                        <fieldset class="edit-error__form__fieldset">
+                            <label for="shot-info">короткое описание</label>
+                            <cfoutput>
+                                <input name="new_name" type="text" id="shot-info" value="#BugInfo.name#">
+                            </cfoutput>
+                        </fieldset>
+                        <fieldset class="edit-error__form__fieldset">
+                            <label for="shot-info">подробное описание</label>
+                            <cfoutput>
+                                <textarea name="new_description" type="text"
+                                    id="shot-info">#BugInfo.description#</textarea>
+                            </cfoutput>
+                        </fieldset>
+                        <fieldset class="edit-error__form__fieldset">
+                            <label for="status">статус</label>
+                            <cfoutput>
+                                <input type="hidden" name="old_status" value="#BugInfo.status_name#">
+                                <select name="new_status" value="#BugInfo.status_name#">
+                                    <option value="#BugInfo.status_name#" label="#BugInfo.status#">
+                                        #BugInfo.status#
+                                    </option>
+                            </cfoutput>
+                            <cfoutput query="StatusList">
+                                <option value="#name#" label="#view_name#">#view_name#</option>
+                            </cfoutput>
+                            </select>
+                        </fieldset>
+                        <fieldset class="edit-error__form__fieldset">
+                            <label for="status">срочность</label>
+                            <select name="new_urgency" id="urgency">
+                                <cfoutput query="BugUrgencies">
+                                    <option value="#name#" label="#view_name#">#view_name#</option>
+                                </cfoutput>
+                            </select>
+                        </fieldset>
+                        <fieldset class="edit-error__form__fieldset">
+                            <label for="comment">комментарии</label>
+                            <textarea name="new_comment" type="text" id="comment"
+                                placeholder="только при изменении статуса"></textarea>
+                        </fieldset>
+                        <div class="edit-error__info__buttons error-flag_hidden visually-hidden">
+                            <button class="button_edit" onclick="return true;">
+                                <span>РЕДАКТИРОВАТЬ</span>
+                            </button>
+                            <div class="button button_cancel">
+                                <span>ОТМЕНА</span>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
                 <div class="edit-error__comments">
                     <div class="edit-error__wrap-comments-title">
@@ -84,66 +175,32 @@
                         </div>
                     </div>
                     <div class="edit-error__wrap-comments">
-                        <div class="edit-error__wrap-comment">
-                            <div class="edit-error__comment-header">
-                                <span class="edit-error__comment-user">user_name</span>
-                                <span class="edit-error__comment-status">новая -> открыта</span>
-                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
-                            </div>
-                            <p class="edit-error__comment-description">
-                                не работает анимация не работает анимацияне работает анимация
-                            </p>
-                        </div>
-                        <div class="edit-error__wrap-comment">
-                            <div class="edit-error__comment-header">
-                                <span class="edit-error__comment-user">user_name</span>
-                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
-                            </div>
-                            <p class="edit-error__comment-description">
-                                не работает анимация не работает анимацияне работает анимация
-                            </p>
-                        </div>
-                        <div class="edit-error__wrap-comment">
-                            <div class="edit-error__comment-header">
-                                <span class="edit-error__comment-user">user_name</span>
-                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
-                            </div>
-                            <p class="edit-error__comment-description">
-                                не работает анимация не работает анимацияне работает анимация
-                            </p>
-                        </div>
-                        <div class="edit-error__wrap-comment">
-                            <div class="edit-error__comment-header">
-                                <span class="edit-error__comment-user">user_name</span>
-                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
-                            </div>
-                            <p class="edit-error__comment-description">
-                                не работает анимация не работает анимацияне работает анимация
-                            </p>
-                        </div>
-                        <div class="edit-error__wrap-comment">
-                            <div class="edit-error__comment-header">
-                                <span class="edit-error__comment-user">user_name</span>
-                                <span class="edit-error__comment-status">новая -> открыта</span>
-                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
-                            </div>
-                            <p class="edit-error__comment-description">
-                                не работает анимация не работает анимацияне работает анимация
-                            </p>
-                        </div>
-                        <div class="edit-error__wrap-comment">
-                            <div class="edit-error__comment-header">
-                                <span class="edit-error__comment-user">user_name</span>
-                                <span class="edit-error__comment-date">25 августа 2023 23:21</span>
-                            </div>
-                            <p class="edit-error__comment-description">
-                                не работает анимация не работает анимацияне работает анимация
-                            </p>
-                        </div>
+                        <cfset curr_state="новая" />
+                        <cfoutput query="BugHist">
+                            <div class="edit-error__wrap-comment">
+                                <div class="edit-error__comment-header">
+                                    <span class="edit-error__comment-user">#username#</span>
+                                    <span class="edit-error__comment-status">
+                                        <cfif LEN(status_name) EQ 3>
+                                            #curr_state# -> #status#
+                                            <cfset curr_state="#status#" />
+                                        </cfif>
 
+                                    </span>
+                                    <span class="edit-error__comment-date">
+                                        #DateFormat(date, "yyyy-mm-dd ")#
+                                        #TimeFormat(date, "HH.mm")#
+                                    </span>
+                                </div>
+                                <p class="edit-error__comment-description">
+                                    #comment#
+                                </p>
+                            </div>
+                        </cfoutput>
                     </div>
-                    <form class="edit-error__comments-form comments-form visually-hidden">
-                        <textarea name="" class="comments-form__textarea"></textarea>
+                    <form method="post" class="edit-error__comments-form comments-form visually-hidden">
+                        <input type="hidden" name="is_comment">
+                        <textarea name="new_comment" class="comments-form__textarea"></textarea>
                         <div class="comments-form__wrap-buttons">
                             <button class="comments-form__add">ДОБАВИТЬ</button>
                             <div class="button button_close">

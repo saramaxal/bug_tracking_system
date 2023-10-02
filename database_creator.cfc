@@ -1,4 +1,4 @@
-<cfcomponent >
+<cfcomponent  type="text/html charset=cp1251">
     <cffunction name="DropTable">
         <cfargument name="tabname" required="true" />
         <cfquery datasource="cfaccerr">
@@ -166,6 +166,7 @@
                     id              INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY 
                 ,   user_id         INTEGER NOT NULL REFERENCES users(id)
                 ,   datec           TIMESTAMP NOT NULL
+                ,   name            VARCHAR(250) NOT NULL
                 ,   description     VARCHAR(1000) NOT NULL
                 ,   status          VARCHAR(3) NOT NULL REFERENCES bug_status(name)
                 ,   urgency         VARCHAR(3) NOT NULL REFERENCES bug_urgency(name)
@@ -175,7 +176,7 @@
 
     <cffunction name="CheckBugTable">
         <cfquery datasource="cfaccerr">
-            SELECT id, user_id, datec, description, status, urgency FROM bug WHERE 0=1
+            SELECT id, user_id, datec, name, description, status, urgency FROM bug WHERE 0=1
         </cfquery>
     </cffunction>
 

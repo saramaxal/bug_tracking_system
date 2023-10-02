@@ -132,11 +132,39 @@
 }
 
 .comments-form__add,
-.button_close {
+.button_close,
+.button_cancel {
     color: var(--COLOR-BLUE);
 }
 
 .comments-form__add {
+    margin-right: 32px;
+    float: left;
+}
+
+.edit-error__form {
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.edit-error__form__fieldset {
+    display: flex;
+    gap: 24px;
+}
+
+.edit-error__form__fieldset label {
+    max-width: 140px;
+    width: 100%;
+}
+
+.edit-error__form__fieldset input,
+.edit-error__form__fieldset textarea {
+    width: 100%;
+}
+
+.edit-error__info__buttons .button_edit {
     margin-right: 32px;
     float: left;
 }

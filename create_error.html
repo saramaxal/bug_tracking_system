@@ -1,4 +1,16 @@
 <cfcontent type="text/html charset=cp1251">
+    <cfscript>
+        db_lib = new database_lib();
+        BugUrgencies = db_lib.GetBugUrgencies();
+    </cfscript>
+
+    <cfif IsDefined("form.is_creating_user")>
+        <cfif db_lib.CreateBug("#name#", "#description#" , "#urgency#" )>
+            <cfset is_success="1">
+        </cfif>
+    </cfif>
+
+
     <!DOCTYPE html>
     <html lang="ru">
 
@@ -20,28 +32,37 @@
         <cfinclude template="header.cfm" />
         <main class="main__create-error create-error">
             <div class="container create-error__container">
-                <form action="" class="create-error__form">
+                <cfform action="create_error.cfm" methtod="post" class="create-error__form">
                     <fieldset class="create-error__fieldset">
+                        <cfinput type="hidden" name="is_creating_user" />
                         <legend class="create-error__legend">
                             Добавление ошибки
                         </legend>
                         <div class="create-error__wrap-field wrap-field">
                             <label for="shot_info" class="wrap-field__label">короткое описание</label>
-                            <input type="text" id="shot_info" class="wrap-field__input">
+                            <input required name="name" type="text" id="shot_info" class="wrap-field__input">
                         </div>
                         <div class="create-error__wrap-field wrap-field">
                             <label for="detailed_info" class="wrap-field__label">подробное описание</label>
-                            <textarea name="" id="detailed_info" class="wrap-field__textarea"></textarea>
-
+                            <textarea required name="description" id="detailed_info"
+                                class="wrap-field__textarea"></textarea>
                         </div>
                         <div class="create-error__wrap-field wrap-field">
                             <label class="wrap-field__label">срочность</label>
-                            <select name="" id="urgency" class="wrap-field__select">
+                            <select name="urgency" id="urgency" class="wrap-field__select">
+                                <cfoutput query="BugUrgencies">
+                                    <option value="#name#" label="#view_name#">#view_name#</option>
+                                </cfoutput>
                             </select>
                         </div>
                         <button class="create-error__button">ДОБАВИТЬ</button>
+                        <cfif IsDefined("is_success")>
+                            <span class="success">
+                                Ошибка добавлена
+                            </span>
+                        </cfif>
                     </fieldset>
-                </form>
+                </cfform>
             </div>
         </main>
     </body>

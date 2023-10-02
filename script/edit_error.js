@@ -1,3 +1,7 @@
+//<!-------------------------------------------
+//---              COMMENTS                 ---
+//--------------------------------------------->
+
 const buttonAddComments = document.querySelector(".button_add-comments");
 const CommentsForm = document.querySelector(".edit-error__comments-form");
 const buttonClose = document.querySelector(".button_close");
@@ -25,5 +29,38 @@ LinkLastComment.addEventListener("click", () => {
         behavior: "smooth",
         block: "start"
     })
+})
+
+//<!-------------------------------------------
+//---              EDIT ERROR               ---
+//--------------------------------------------->
+const buttonEdit = document.querySelector("div.button_edit");
+const errorElementsShow = document.querySelectorAll(".error-flag_show");
+
+const buttonCancel = document.querySelector("div.button_cancel");
+const errorElementsHidden = document.querySelectorAll(".error-flag_hidden");
+
+buttonEdit.addEventListener("click", () => {
+    if (!errorElementsShow[0].classList.contains("visually-hidden")) {
+        errorElementsShow.forEach(element => {
+            element.classList.add("visually-hidden");
+        });
+
+        errorElementsHidden.forEach(element => {
+            element.classList.remove("visually-hidden");
+        })
+    }
+})
+
+buttonCancel.addEventListener("click", () => {
+    if (errorElementsShow[0].classList.contains("visually-hidden")) {
+        errorElementsShow.forEach(element => {
+            element.classList.remove("visually-hidden");
+        });
+
+        errorElementsHidden.forEach(element => {
+            element.classList.add("visually-hidden");
+        })
+    }
 })
 

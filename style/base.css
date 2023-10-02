@@ -119,6 +119,11 @@ input:not(.nav__link)::placeholder {
     color: var(--COLOR-GRAY_DARK);
 }
 
+/* input:required,
+textarea:required {
+    border-color: #AD4C5F;
+} */
+
 button,
 .button {
     border: 0;
@@ -136,7 +141,7 @@ button,
     cursor: pointer;
 }
 
-button,
+button:not(.button_min),
 .button:not(.button_min) {
     padding: 14px 22px;
 }
@@ -156,6 +161,26 @@ option {
 .visually-hidden {
     position: fixed;
     transform: scale(0);
+}
+
+.success {
+    color: #57C06E;
+    animation: extintion 4s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes extintion {
+    0% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .container {
