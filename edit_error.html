@@ -9,9 +9,7 @@
 
     <cfif IsDefined("is_comment")>
         <cfif db_lib.CreateBugHist(bug, new_comment, "NULL" )>
-            <cfoutput>SUCCESS!</cfoutput>
-            <cfelse>
-                <cfoutput>ERROR!!!</cfoutput>
+
         </cfif>
     </cfif>
     <cfif IsDefined("is_redact")>

@@ -70,18 +70,13 @@
         <cfargument name="comment" type="string" required="true" />
         <cfargument name="state" type="string" required="true" />
 
-        <cfscript>
-            writedump(bug_id);
-            writedump(comment);
-            writedump(state);
-        </cfscript>
+        <cftry>
             <cfquery datasource="cfaccerr">
                 INSERT INTO bug_hist
                     (bug, user_id, date, comment, new_state)
                 VALUES 
                     (#bug_id#, #Session.user_id#, #Now()#, '#comment#', #state EQ "NULL" ? "NULL" : "'"&state&"'"#)
             </cfquery>
-        <cftry>
         <cfcatch type="any">
             <cfreturn false>
         </cfcatch>
