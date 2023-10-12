@@ -20,12 +20,13 @@
                 ,   password        VARCHAR (32) NOT NULL
             )
         </cfquery>
-        <cfset pass=Hash('admin',  'MD5')>
         <cfquery datasource="cfaccerr">
             INSERT INTO users
                 (login, name, surname, password)
             VALUES 
-                ('admin', 'Администратор', 'сайта', '#pass#')
+                ('admin', 'Администратор', 'сайта', '#Hash('admin',  'MD5')#'), 
+                ('sara', 'Sara', 'Alekseeva', '#Hash('qaz',  'MD5')#'), 
+                ('test', 'test', 'test', '#Hash('qaz',  'MD5')#')
         </cfquery>
     </cffunction>
 

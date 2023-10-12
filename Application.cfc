@@ -10,8 +10,6 @@
 
 
 <cffunction name="onRequestStart">
-<!--- onSessionStart body goes here --->
-<!--cfset Request.theFunctionName=This.theFunctionName-->
     <cfif IsDefined("logout")> 
         <cfset StructClear(Session)>
     </cfif>
@@ -67,6 +65,7 @@
     // db_creator.DropTable("bug_status_trace");
     // db_creator.DropTable("bug_status");
     // db_creator.DropTable("users");
+
     CheckFunc(db_creator.CheckUsersTable, db_creator.CreateUsersTable);
     CheckFunc(db_creator.CheckBugStatusTable, db_creator.CreateBugStatusTable);
     CheckFunc(db_creator.CheckBugStatusTraceTable, db_creator.CreateBugStatusTraceTable);

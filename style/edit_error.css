@@ -53,6 +53,16 @@
     line-height: 1.6;
 }
 
+.fieldset__new-comment:disabled,
+.fieldset__new-comment:disabled textarea::placeholder {
+    color: #CCCCCC;
+}
+
+.fieldset__new-comment:disabled textarea {
+    border-color: #CCCCCC;
+}
+
+
 .button_edit {
     max-width: 220px;
     color: var(--COLOR-BLUE);

@@ -47,7 +47,8 @@
         <cfargument name="name" type="string" required="true" />
         <cfargument name="description" type="string" required="true" />
         <cfargument name="urgency" type="string" required="true" />
-
+        <cfargument name="status" type="string" required="true" />
+        
         <cftry>
             <cfquery datasource="cfaccerr">
                 UPDATE bug
@@ -55,8 +56,10 @@
                         name='#name#'
                     ,   description='#description#'
                     ,   urgency='#urgency#'
+                    ,   status='#status#'
                 WHERE id=#bug_id#
             </cfquery>
+
         <cfcatch type="any">
             <cfreturn false>
         </cfcatch>
